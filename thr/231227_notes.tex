@@ -1,0 +1,376 @@
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[
+	left=1cm,right=1cm,top=1cm,bottom=2cm,
+    papersize={250mm,350mm}
+]{geometry}
+
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{physics}
+
+\usepackage{verbatim}
+
+\usepackage[squaren]{SIunits}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\suml}{\sum\limits}
+\newcommand{\prodl}{\prod\limits}
+\newcommand{\intl}{\int\limits}
+
+
+\begin{document}
+
+We have 2 Hypervolumes
+
+\begin{align}
+	\mathcal{V}_t
+	&\subset
+	\mathbb{R}^{n_t}
+\\
+	\mathcal{V}_\tau
+	&\subset
+	\mathbb{R}^{n_\tau}
+\\
+	\mathcal{V}
+	&=
+	\mathcal{V}_t
+	\times
+	\mathcal{V}_\tau
+\\
+	n_t
+	&\geq
+	n_\tau
+\end{align}
+
+
+\begin{align}
+	\dot{X_t}
+	&=
+	F(X,X_\tau)
+	\dd{t}
+	+
+	\sqrt{2D_0}
+	\dd{B}_t
+\\	
+	&=
+	-
+	a
+	X_t^3
+	\dd{t}
+	+
+	b
+	X_t
+	\dd{t}
+	+
+	K
+	(X_t-X_\tau)
+	\dd{t}
+	+
+	\sqrt{2D_0}
+	\dd{B}_t
+\end{align}
+
+\begin{align}
+	F(x,x_\tau)
+	&=
+	F_1(x)
+	+
+	F_2(x_\tau)
+	=
+	-
+	ax^3
+	+
+	(b+K)x
+	-
+	Kx_\tau
+\end{align}
+
+\begin{align}
+	\pdv{t}
+	\rho_1
+	&=
+	-
+	\pdv{x}
+	\intl_{\mathcal{V}_\tau}
+	\dd{x_\tau}
+	F(x,x_\tau)
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	+
+	D_0
+	\pdv[2]{x}
+	\rho_1(x,t)
+\\
+	&=
+	-
+	\pdv{x}
+	F_1(x)
+	\intl_{\mathcal{V}_\tau}
+	\dd{x_\tau}
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	-
+	\pdv{x}
+	\intl_{\mathcal{V}_\tau}
+	\dd{x_\tau}
+	F_2(x_\tau)
+	\rho_2
+	(x,t;x_\tau,t-\tau)	
+	+
+	D_0
+	\pdv[2]{x}
+	\rho_1(x,t)
+\\
+	&=
+	-
+	\pdv{x}
+	F_1(x)
+	\rho_1
+	(x,t)
+	-
+	\pdv{x}
+	\intl_{\mathcal{V}_\tau}
+	\dd{x_\tau}
+	F_2(x_\tau)
+	\rho_2
+	(x,t;x_\tau,t-\tau)	
+	+
+	D_0
+	\pdv[2]{x}
+	\rho_1(x,t)
+\end{align}
+
+\begin{align}
+	\pdv{t}
+	\rho_2
+	&=
+	-
+	\pdv{x}
+	F(x,x_\tau)
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	+
+	D_0
+	\pdv[2]{x}
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	+
+	\pdv{x_\tau}
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	\intl_{\mathcal{V}_t}
+	\dd{\dot{x}_\tau}
+	\rho_1
+	(\dot{x}_\tau,t-\tau)
+	\dot{x}_\tau
+\\
+	&=
+	-
+	\pdv{x}
+	F(x,x_\tau)
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	+
+	D_0
+	\pdv[2]{x}
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	+
+	\pdv{x_\tau}
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	\pqty{
+		\intl_{\mathcal{V}_t}
+		\dd{\dot{x}_\tau}
+		\rho_1
+		(\dot{x}_\tau,t-\tau)
+		\dot{x}_\tau
+	}
+\\
+	&=
+	-
+	\pdv{x}
+	F_1(x)
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	-
+	F_2(x_\tau)
+	\pdv{x}
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	+
+	D_0
+	\pdv[2]{x}
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	+
+	\pdv{x_\tau}
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	\pqty{
+		\intl_{\mathcal{V}_t}
+		\dd{\dot{x}_\tau}
+		\rho_1
+		(\dot{x}_\tau,t-\tau)
+		\dot{x}_\tau
+	}
+\end{align}
+
+\begin{align}
+	\pdv{f}{x}
+	&\sim
+	\frac{f(x_{i+1})-f(x_{i-1})}{2\Delta x}
+\\
+	\pdv[2]{f}{x}
+	&\sim
+	\frac{2f(x_{i})-f(x_{i-1})-f(x_{i+1})}{\Delta x^2}
+\end{align}
+
+\begin{align}
+	\intl_{\mathcal{V}}
+	\dd{x}
+	f(x)
+	&=
+	\Delta x
+	\suml_{i=1}^{N_\mathcal{V}}
+	f(x_i)
+\end{align}
+
+
+\begin{comment}
+
+
+\begin{align}
+	f(\vb{x})
+	&=
+	-ax_1^3
+	+\beta x_1
+	-
+	K
+	x_2
+\\
+	&=
+	f_1(x_1)
+	+
+	f_2(x_2)
+\end{align}
+
+\begin{align}
+	\pdv{t}
+	\rho_1
+	(x_1,t)
+	&=
+	-
+	f_1^\prime(x_1)
+	\rho_1
+	(x_1,t)
+	-
+	f_1(x_1)
+	\pdv{x_1}	
+	\rho_1
+	(x_1,t)
+	-
+	\intl
+	\dd{x_2}
+	f_2(x_2)
+	\pdv{x_1}
+	\rho_2
+	(\vb{x},t)
+	+
+	D_0
+	\pdv[2]{x_1}
+	\rho_1
+	(x_1,t)
+\\
+	\pdv{t}
+	\rho_2
+	(\vb{x},t)
+	&=
+	-
+	f_1^\prime(x_1)
+	\rho_2
+	(\vb{x},t)
+	-
+	f(x_1)
+	\pdv{x_1}
+	\rho_2
+	(\vb{x},t)
+	-
+	f(x_2)
+	\pdv{x_1}
+	\rho_2
+	(\vb{x},t)
+	+
+	D_0
+	\pdv[2]{x_1}
+	\rho_2
+	(\vb{x},t)
+	+
+	\pdv{x_2}
+	\pqty{
+		\intl
+		\dd{v_2}
+		\rho_1(v_2,t-\tau)
+		v_2
+	}
+	\rho_2(\vb{x},t)
+\end{align}
+
+\begin{align}
+	\pdv{t}
+	\vb*{\rho}
+	(\vb{x},t)
+	&=
+	-
+	f_1^\prime
+	(x_1)
+	\vb*{\rho}
+	(\vb{x},t)
+	-
+	f_1
+	(x_1)
+	\pdv{x_1}	
+	\vb*{\rho}
+	(\vb{x},t)
+	-
+	\vb{e}_2
+	\cdot
+	f_2(x_2)
+	\pdv{x_1}
+	\vb*{\rho}
+	(\vb{x},t)
+	+
+	D_0
+	\pdv[2]{x_1}
+	\vb*{\rho}
+	(\vb{x},t)
+	+
+	\pmqty{
+		-
+		\pdv{x_1}
+		\intl\dd{x_2}
+		f_2(x_2)
+		\rho_2
+		(\vb{x},t)
+		\\
+		\pdv{x_2}
+		\intl\dd{v_2}
+		v_2
+		\rho_1(v_2,t-\tau)
+		\rho_2
+		(\vb{x},t)
+	}
+\end{align}
+
+\end{comment}
+
+\end{document}
