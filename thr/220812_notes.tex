@@ -1,0 +1,1100 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[
+	left=1cm,right=1cm,top=1cm,bottom=2cm,
+    papersize={250mm,350mm}
+]{geometry}
+
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{dsfont}
+
+\usepackage[squaren]{SIunits}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{verbatim}
+
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\suml}{\sum\limits}
+\newcommand{\prodl}{\prod\limits}
+\newcommand{\intl}{\int\limits}
+
+\newcommand{\gammar}{\gamma_{\text{r}}}
+\newcommand{\gammai}{\gamma_{\text{i}}}
+
+\begin{document}
+
+\section{1-Dimensional Examples}
+
+\subsection{Transcritical Bifurcation Model}
+
+\begin{align}
+	a
+	&\in
+	\mathbb{R}\setminus\Bqty{0}
+\end{align}
+
+\begin{align}
+	\dot{x}
+	&=
+	ax
+	-
+	x^2
+\end{align}
+
+\begin{align}
+	x(t)
+	&=
+	\frac{
+		a	
+	}
+	{
+		1
+		-
+		e^{-ac_1-at}
+	}
+\end{align}
+
+\begin{align}
+	x(0)
+	&=
+	x_0
+	=
+	\frac{
+		a	
+	}
+	{
+		1
+		-
+		e^{-ac_1}
+	}
+\end{align}
+
+$x_0\neq 0$, $x_0\neq a$ 
+
+\begin{align}
+	c_1
+	&=
+	a^{-1}
+	\ln\pqty{\frac{x_0}{x_0-a}}
+\end{align}
+
+\begin{align}
+	x(t)
+	&=
+	\frac{
+		a	
+	}
+	{
+		1
+		-
+		\frac{x_0-a}{x_0}		
+		e^{-at}
+	}
+\end{align}
+
+\begin{align}
+	\dot{x}
+	&=
+	f(x)
+\end{align}
+
+\begin{align}
+	0	
+	&=
+	f(\bar{x})
+	=
+	a\bar{x}
+	-	
+	\bar{x}^2
+\end{align}
+
+\begin{align}
+	\bar{x}_0
+	&=
+	0
+	,\quad
+	\bar{x}_a
+	=
+	a
+\end{align}
+
+\begin{align}
+	\mathsf{J}_{f(x)}
+	&=
+	a-2\bar{x}
+\end{align}
+
+\begin{align}
+	\varsigma
+	&=
+	a-2\bar{x}
+\end{align}
+
+\begin{align}
+	\varsigma_0
+	&=
+	a
+\\
+	\varsigma_a
+	&=
+	-a
+\end{align}
+
+\subsubsection{Pyragas Control}
+
+\begin{align}
+	\dot{x}
+	&=
+	a
+	x
+	-
+	x^2
+	+
+	K
+	(x-x_\tau)	
+\end{align}
+
+\begin{align}
+	\dot{x}
+	&=
+	f(x,x_\tau)
+\end{align}
+
+\begin{align}
+	0
+	&=
+	f(\bar{x},\bar{x}_\tau)
+	=
+	a\bar{x}
+	-
+	\bar{x}^2
+	+
+	K
+	(\bar{x}-\bar{x}_\tau)	
+\end{align}
+
+\begin{align}
+	\delta
+	\dot{x}
+	&=
+	\pqty{
+		a
+		-
+		2\bar{x}
+		+
+		K
+	}
+	\delta x
+	-
+	K
+	\delta x_\tau
+\end{align}
+
+\subsubsection{Wiener Process}
+
+\begin{align}
+	\expval{\xi(t)}
+	&=
+	0
+\\
+	\expval{\xi(t)\xi(t^\prime)}
+	&=
+	\delta(t-t^\prime)
+\end{align}
+
+\begin{align}
+	\dot{X}
+	&=
+	aX
+	-
+	X^2
+	+
+	D_0
+	\xi(t)
+\end{align}
+
+\begin{align}
+	\sigma_0
+	&=
+	\frac{
+		D_0^2
+	}{2}
+\end{align}
+
+\begin{align}
+	\dot{X}
+	&=
+	f(X)
+	+
+	D_0
+	\xi(t)
+\end{align}
+
+\begin{align}
+	X
+	&\in
+	\Omega
+	\subseteq
+	\mathbb{R}
+\end{align}
+
+\begin{align}
+	\partial_t
+	\varrho(x,t)
+	&=
+	-
+	\partial_x
+	f(x)
+	\varrho(x,t)
+	+
+	\sigma_0
+	\partial_x^2
+	\varrho(x,t)	
+\end{align}
+
+\begin{align}
+	\partial_t
+	\varrho(x,t)
+	&=
+	(2x-a)
+	\varrho(x,t)
+	+
+	(x^2-ax)
+	\partial_x
+	\varrho(x,t)
+	+
+	\sigma_0
+	\partial_x^2
+	\varrho(x,t)	
+\end{align}
+
+\subsubsection{Wiener Process and Pyragas Control}
+
+\begin{align}
+	\dot{X}
+	&=
+	aX
+	-
+	X^2
+	+
+	K
+	(X-X_\tau)	
+	+
+	D_0
+	\xi(t)
+\end{align}
+
+\begin{align}
+	\dot{X}
+	&=
+	f(X,X_\tau)
+	+
+	D_0
+	\xi(t)
+\end{align}
+
+
+\begin{align}
+	\partial_t
+	\varrho_1(x,t)
+	&=
+	-
+	\partial_x
+	\intl_\Omega\dd{x_\tau}
+	f(x,x_\tau)
+	\varrho_2(x,x_\tau,t,t-\tau)
+	+
+	\sigma_0
+	\partial_x^2
+	\varrho_1(x,t)
+\\
+	\partial_t
+	\varrho_2(x,x_\tau,t,t-\tau)
+	&=
+	-
+	\partial_x
+	\pqty{
+		f(x,x_\tau)
+		\varrho_2(x,x_\tau,t,t-\tau)
+	}
+	+
+	\sigma_0
+	\partial_x^2
+	\varrho_2(x,x_\tau,t,t-\tau)
+\\
+	&+
+	\partial_{x_\tau}
+	\varrho_2(x,x_\tau,t,t-\tau)
+	\intl_{\Omega}\dd{\dot{x}_\tau}
+	\dot{x}_\tau
+	\varrho_1(\dot{x}_\tau,t-\tau)
+\end{align}
+
+\begin{align}
+	\partial_t
+	\varrho_1(x,t)
+	&=
+	(2x-(a+K))
+	\varrho_1(x,t)
+	+
+	(x^2-(a+K)x)
+	\partial_x
+	\varrho_1(x,t)
+\\
+	&+
+	K	
+	\partial_x
+	\intl_\Omega\dd{x_\tau}
+	x_\tau
+	\varrho_2(x,x_\tau,t,t-\tau)
+	+
+	\sigma_0
+	\partial_x^2
+	\varrho_1(x,t)
+\\
+	\partial_t
+	\varrho_2(x,x_\tau,t,t-\tau)
+	&=
+	\pqty{
+		(2x-(a+K)x)
+		\varrho_2(x,x_\tau,t,t-\tau)
+	}
+	-
+	\pqty{
+		(ax-x^2+K(x-x_\tau))
+	}
+	\partial_x
+	\varrho_2(x,x_\tau,t,t-\tau)
+\\
+	&+
+	\sigma_0
+	\partial_x^2
+	\varrho_2(x,x_\tau,t,t-\tau)
+	+
+	\partial_{x_\tau}
+	\varrho_2(x,x_\tau,t,t-\tau)
+	\intl_{\Omega}\dd{\dot{x}_\tau}
+	\dot{x}_\tau
+	\varrho_1(\dot{x}_\tau,t-\tau)
+\end{align}
+
+\newpage
+
+\section{(2,1)-Dimensional Examples}
+
+\subsection{Van der Pol Oscillator}
+
+\begin{align}
+	\dot{x}
+	&=
+	y
+\\
+	\dot{y}
+	&=
+	\pqty{\varepsilon-x^2}
+	y
+	-
+	\omega_0^2
+	x
+\end{align}
+
+\begin{align}
+	\dot{x}
+	&=
+	y
+\\
+	\dot{y}
+	&=
+	\pqty{\varepsilon-x^2}
+	y
+	-
+	\omega_0^2
+	x	
+	+
+	K
+	(x-x_\tau)
+\end{align}
+
+\begin{align}
+	\dot{x}
+	&=
+	y
+\\
+	\dot{y}
+	&=
+	\pqty{\varepsilon-x^2}
+	y
+	-
+	\omega_0^2
+	x	
+	+
+	K
+	(x-x_\tau)
+	+
+	D_0
+	\xi(t)
+\end{align}
+
+\section{2-Dimensional Examples}
+
+\subsection{Stuart–Landau Equation}
+
+\begin{align*}
+	\lambda,\alpha,K,D
+	&\in\mathbb{R},
+	\quad
+	\gamma\in\mathbb{C}
+\\
+	\lambda
+	&>0,
+	\quad
+	\gammar
+	>0
+\end{align*}
+
+\begin{align}
+	\dd{z}
+	&=
+	\pqty{
+		\lambda
+		+
+		\mi\alpha
+		-
+		\gamma\abs{z}^2
+	}z
+	\dd{t}
+	+
+	K\pqty{z-z_{\tau}}
+	\dd{t}
+	+
+	D
+	\dd{W}
+\end{align}
+
+\begin{align}
+	\dd{z}
+	&=
+	\pqty{
+		\lambda
+		+
+		\mi\alpha
+		-
+		\gamma\abs{z}^2
+	}z
+	\dd{t}	
+\end{align}
+
+\begin{align}
+	z
+	&=
+	r e^{\mi\varphi}
+	,\quad
+	\dd{z}
+	=
+	e^{\mi\varphi}
+	\dd{r}
+	+
+	\mi
+	r
+	e^{\mi\varphi}
+	\dd{\varphi}	
+\end{align}
+
+\begin{align}
+	e^{\mi\varphi}
+	\dd{r}
+	+
+	\mi
+	r
+	e^{\mi\varphi}
+	\dd{\varphi}
+	&=
+	\pqty{\lambda+\mi\alpha-\gamma r^2}
+	r e^{\mi\varphi}
+	\dd{t}
+\\
+	\dd{r}
+	+
+	\mi
+	r
+	\dd{\varphi}
+	&=
+	\pqty{
+		\lambda r
+		+
+		\mi\alpha r
+		-
+		\gammar r^3
+		-
+		\mi\gammai r^3
+	}
+	\dd{t}
+\end{align}
+
+\begin{align}
+	\dd{r}
+	&=
+	\pqty{\lambda r-\gammar r^3}
+	\dd{t}
+\\
+	\dd{\varphi}
+	&=
+	\pqty{
+		\alpha
+		-
+		\gammai
+		r^2
+	}	
+	\dd{t}
+\end{align}
+
+\begin{align}
+	\eta
+	&=
+	r^{-2}
+\\
+	\dv{\eta}{r}
+	&=
+	-2r^{-3}
+\end{align}
+
+\begin{align}
+	\dd{\eta}
+	&=
+	\dv{\eta}{r}
+	\dd{r}
+	=
+	-2r^{-3}
+	\pqty{\lambda r-\gammar r^3}
+	\dd{t}
+	=
+	-2
+	\pqty{\lambda\eta-\gammar }
+	\dd{t}
+\end{align}
+
+\begin{align}
+	\dot{\eta}
+	&=
+	-2
+	\lambda\eta
+	+
+	2
+	\gammar
+\end{align}
+
+\begin{align}
+	\eta(t)
+	&=
+	c_1
+	e^{-2\lambda t}
+	+
+	\frac{\gammar}{\lambda}
+\end{align}
+
+\begin{align}
+	\eta_0
+	&=
+	\eta(0)
+	=
+	c_1
+	+
+	\frac{\gammar}{\lambda}
+\\
+	c_1
+	&=
+	\eta_0
+	-
+	\frac{\gammar}{\lambda}		
+\end{align}
+
+\begin{align}
+	\eta(t)
+	&=
+	\pqty{
+		\eta_0
+		-
+		\frac{\gammar}{\lambda}	
+	}
+	e^{-2\lambda t}
+	+
+	\frac{\gammar}{\lambda}
+\\
+	r(t)
+	&=
+	\frac{1}{
+		\sqrt{
+			\pqty{
+				r_0^{-2}
+				-
+				\frac{\gammar}{\lambda}	
+			}
+			e^{-2\lambda t}
+			+
+			\frac{\gammar}{\lambda}
+		}	
+	}
+\end{align}
+
+\begin{align}
+	\dot{\varphi}
+	&=
+	\alpha
+	-
+	\frac{\gammai}
+	{
+		\pqty{
+			r_0^{-2}
+			-
+			\frac{\gammar}{\lambda}	
+		}
+		e^{-2\lambda t}
+		+
+		\frac{\gammar}{\lambda}	
+	}
+\end{align}
+
+\begin{align}
+	\varphi(t)
+	&=
+	\varphi(0)
+	+
+	\intl_{0}^t
+	\dd{t^\prime}
+	\pqty{
+		\alpha
+		-
+		\frac{\gammai}
+		{
+			\pqty{
+				r_0^{-2}
+				-
+				\frac{\gammar}{\lambda}	
+			}
+			e^{-2\lambda t^\prime}
+			+
+			\frac{\gammar}{\lambda}	
+		}
+	}
+\\
+	&=
+	\varphi(0)
+	+
+	\alpha
+	t
+	-
+	\gammai
+	\intl_{0}^t
+	\dd{t^\prime}
+	\frac{1}
+	{
+		\pqty{
+			r_0^{-2}
+			-
+			\frac{\gammar}{\lambda}	
+		}
+		e^{-2\lambda t^\prime}
+		+
+		\frac{\gammar}{\lambda}	
+	}
+\\
+	&=
+	\varphi(0)
+	+
+	\alpha
+	t
+	-
+	\gammai
+	\lambda
+	r_0^2
+	\intl_{0}^t
+	\dd{t^\prime}
+	\frac{1}
+	{
+		\pqty{
+			\lambda
+			-
+			\gammar r_0^2	
+		}
+		e^{-2\lambda t^\prime}
+		+
+		\gammar r_0^2	
+	}
+\\
+	&=
+	\varphi(0)
+	+
+	\alpha
+	t
+	-
+	\gammai
+	\lambda
+	r_0^2
+	\intl_{0}^t
+	\dd{t^\prime}
+	\frac{e^{2\lambda t^\prime}}
+	{
+		\lambda
+		-
+		\gammar r_0^2
+		+
+		\gammar r_0^2
+		e^{2\lambda t^\prime}
+	}
+\end{align}
+
+\begin{align}
+	u(t^\prime)
+	&=
+	\lambda
+	-
+	\gammar r_0^2
+	+
+	\gammar r_0^2
+	e^{2\lambda t^\prime}
+\\
+	\dv{u}{t^\prime}
+	&=
+	2\gammar\lambda r_0^2
+	e^{2\lambda t^\prime}
+\end{align}
+
+\begin{align}
+	\varphi(t)
+	&=
+	\varphi(0)
+	+
+	\alpha
+	t
+	-
+	\frac{\gammai}{2\gammar}
+	\intl_{u(0)}^{u(t)}
+	\dd{u}
+	\frac{1}{u}
+\\
+	&=
+	\varphi(0)
+	+
+	\alpha
+	t
+	-
+	\frac{\gammai}{2\gammar}
+	\pqty{
+		\ln\abs{u(t)}
+		-
+		\ln\abs{u(0)}
+	}
+\\
+	&=
+	\varphi(0)
+	+
+	\alpha
+	t
+	-
+	\frac{\gammai}{2\gammar}
+	\pqty{
+		\ln\abs{
+			\lambda
+			-
+			\gammar r_0^2
+			+
+			\gammar r_0^2
+			e^{2\lambda t}		
+		}
+		-
+		\ln\abs{
+			\lambda
+			-
+			\gammar r_0^2
+		}
+	}
+\\
+	&=
+	\varphi(0)
+	+
+	\alpha
+	t
+	-
+	\frac{\gammai}{2\gammar}
+	\ln\abs{
+		1
+		+
+		\frac{
+			\gammar r_0^2
+			e^{2\lambda t}
+		}
+		{
+			\lambda
+			-
+			\gammar r_0^2
+		}	
+	}
+\end{align}
+
+
+\begin{align}
+	\dot{r}
+	&=
+	\lambda r
+	-
+	\gammar
+	r^3
+\\
+	\dot{\varphi}
+	&=
+	\alpha
+	-
+	\gammai
+	r^2
+\end{align}
+
+\begin{align}
+	\dot{\vb{r}}
+	&=
+	\vb{f}
+	(r,\varphi)
+\end{align}
+
+\begin{align}
+	0
+	&=
+	\vb{f}
+	(\bar{r},\bar{\varphi})
+	=
+	\pmqty{
+		\lambda \bar{r}
+		-
+		\gammar
+		\bar{r}^3
+	\\
+		\alpha
+		-
+		\gammai
+		\bar{r}^2
+	}
+\end{align}
+
+\begin{align}
+	\mathsf{J}_{\vb{f}(r,\varphi)}
+	&=
+	\pmqty{
+		\lambda-3\gammar r^2
+		&
+		0
+		\\
+		-2\gammai r
+		&
+		0
+	}
+\end{align}
+
+\begin{align}
+	\varsigma_1
+	&=
+	\lambda-3\gammar r^2
+\\
+	\varsigma_2
+	&=
+	0
+\end{align}
+
+\begin{align}
+	\dot{x}
+	+
+	\mi\dot{y}
+	&=
+	\pqty{
+		\lambda
+		+
+		\mi\alpha
+		-
+		(
+			\gammar
+			+
+			\mi\gammai		
+		)
+		(x^2+y^2)
+	}
+	\pqty{
+		x
+		+
+		\mi y
+	}
+\\
+	&=
+	\lambda
+	x
+	+
+	\mi\alpha
+	x		
+	-
+	\gammar
+	(x^2+y^2)		
+	x		
+	-
+	\mi\gammai		
+	(x^2+y^2)
+	x
+\\
+	&+
+	\mi
+	\lambda
+	y
+	-
+	\alpha
+	y
+	-
+	\mi
+	\gammar
+	(x^2+y^2)
+	y
+	+
+	\gammai
+	(x^2+y^2)
+	y
+\end{align}
+
+\begin{align}
+	\dot{x}
+	&=
+	\lambda
+	x
+	-
+	\alpha
+	y
+	-
+	(
+		\gammar
+		x
+		-
+		\gammai
+		y	
+	)
+	(x^2+y^2)
+\\
+	\dot{y}
+	&=
+	\alpha
+	x
+	+	
+	\lambda
+	y		
+	-
+	(
+		\gammai
+		x
+		+
+		\gammar
+		y
+	)
+	(x^2+y^2)
+\end{align}
+
+\begin{align}
+	\pmqty{
+		x\\y	
+	}
+	\otimes
+	\pmqty{
+		\gammar\\\gammai	
+	}
+	&=
+	\pmqty{
+		\gammar
+		x
+		-
+		\gammai
+		y
+		\\
+		\gammai
+		x
+		+
+		\gammar
+		y
+	}
+\end{align}
+
+\begin{align}
+	\dot{\vb{r}}
+	&=
+	\vb{f}
+	(x,y)
+\end{align}
+
+\begin{align}
+	0
+	&=
+	\vb{f}
+	(\bar{x},\bar{y})
+	=
+	\pmqty{
+		\lambda
+		\bar{x}
+		-
+		\alpha
+		\bar{y}
+		-
+		(
+			\gammar
+			\bar{x}
+			-
+			\gammai
+			\bar{y}
+		)
+		(\bar{x}^2+\bar{y}^2)
+	\\
+		\alpha
+		\bar{x}
+		+	
+		\lambda
+		\bar{y}
+		-
+		(
+			\gammai
+			\bar{x}
+			+
+			\gammar
+			\bar{y}
+		)
+		(\bar{x}^2+\bar{y}^2)
+	}
+\end{align}
+
+\begin{align}
+	(\bar{x}_1,\bar{y}_1)
+	&=
+	(0,0)
+\end{align}
+
+\begin{align}
+	(\bar{x}_2,\bar{y}_2)
+	&=
+	\sqrt{\frac{\lambda}{\gammar}}
+	(\cos(\bar{\varphi}),\sin(\bar{\varphi})),
+	\quad
+	\bar{\varphi}\in\left[0,2\pi\right[
+\end{align}
+
+\begin{align}
+	\mathsf{J}_{\vb{f}(x,y)}
+	&=
+	\pmqty{
+		\lambda
+		-
+		\gammar
+		\bar{y}^2
+		&
+		0
+		\\
+		&
+		0
+	}
+\end{align}
+
+\end{document} 
