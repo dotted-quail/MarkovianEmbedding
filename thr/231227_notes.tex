@@ -29,6 +29,60 @@
 
 \begin{document}
 
+\paragraph{Parameters}
+
+\begin{align}
+	a&>0
+\\
+	b&>0
+\\
+	K&\geq 0
+\\
+	D_0
+	&\geq 0
+\\
+	\tau
+	&\geq 0
+\end{align}
+
+
+\paragraph{Potential}
+
+\begin{align}
+	V(x)
+	&=
+	\frac{a}{4}
+	x^4
+	-
+	\frac{b}{2}
+	x^2
+	=
+	\frac{a}{4}
+	x^2
+	\pqty{
+		x-\sqrt{\frac{2b}{a}}
+	}
+	\pqty{
+		x+\sqrt{\frac{2b}{a}}	
+	}
+\end{align}
+
+\paragraph{Force}
+
+\begin{align}
+	F(x)
+	&=
+	-\pdv{V}{x}
+	=
+	-
+	a
+	x^3
+	+
+	b
+	x
+\end{align}
+
+
 We have 2 Hypervolumes
 
 \begin{align}
@@ -148,6 +202,33 @@ We have 2 Hypervolumes
 	\pdv[2]{x}
 	\rho_1(x,t)
 \end{align}
+
+\begin{align}
+	\pdv{t}
+	\rho_1
+	&=
+	-
+	\pdv{F_1}{x}
+	\rho_1
+	(x,t)
+	-
+	F_1(x)
+	\pdv{x}
+	\rho_1
+	(x,t)
+	-
+	\pdv{x}
+	\intl_{\mathcal{V}_\tau}
+	\dd{x_\tau}
+	F_2(x_\tau)
+	\rho_2
+	(x,t;x_\tau,t-\tau)	
+	+
+	D_0
+	\pdv[2]{x}
+	\rho_1(x,t)
+\end{align}
+
 
 \begin{align}
 	\pdv{t}
