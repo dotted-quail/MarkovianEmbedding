@@ -1,0 +1,518 @@
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[
+	left=1cm,right=1cm,top=1cm,bottom=2cm,
+    papersize={250mm,350mm}
+]{geometry}
+
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{physics}
+
+\usepackage{verbatim}
+
+\usepackage[squaren]{SIunits}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\suml}{\sum\limits}
+\newcommand{\prodl}{\prod\limits}
+\newcommand{\intl}{\int\limits}
+
+
+\begin{document}
+
+\subsubsection*{Parameters}
+
+\begin{align}
+	a&>0
+\\
+	b&>0
+\\
+	K&\geq 0
+\\
+	D_0
+	&\geq 0
+\\
+	\tau
+	&\geq 0
+\end{align}
+
+\subsubsection*{Potential}
+
+\begin{align}
+	V(x)
+	&=
+	\frac{a}{4}
+	x^4
+	-
+	\frac{b}{2}
+	x^2
+	=
+	\frac{a}{4}
+	x^2
+	\pqty{
+		x-\sqrt{\frac{2b}{a}}
+	}
+	\pqty{
+		x+\sqrt{\frac{2b}{a}}	
+	}
+\end{align}
+
+\subsubsection*{Force}
+
+\begin{align}
+	F(x)
+	&=
+	-\pdv{V}{x}
+	=
+	-
+	a
+	x^3
+	+
+	b
+	x
+\end{align}
+
+
+We have 2 Hypervolumes
+
+\begin{align}
+	\mathcal{V}_t
+	&\subset
+	\mathbb{R}^{n_t}
+\\
+	\mathcal{V}_\tau
+	&\subset
+	\mathbb{R}^{n_\tau}
+\\
+	\mathcal{V}
+	&=
+	\mathcal{V}_t
+	\times
+	\mathcal{V}_\tau
+\\
+	n_t
+	&\geq
+	n_\tau
+\end{align}
+
+
+\begin{align}
+	\dot{X_t}
+	&=
+	F(X_t,X_\tau)
+	\dd{t}
+	+
+	\sqrt{2D_0}
+	\dd{B}_t
+\\	
+	&=
+	-
+	a
+	X_t^3
+	\dd{t}
+	+
+	b
+	X_t
+	\dd{t}
+	+
+	K
+	(X_t-X_\tau)
+	\dd{t}
+	+
+	\sqrt{2D_0}
+	\dd{B}_t
+\end{align}
+
+\begin{align}
+	F(x,x_\tau)
+	&=
+	F_1(x)
+	+
+	F_2(x_\tau)
+	=
+	-
+	ax^3
+	+
+	(b+K)x
+	-
+	Kx_\tau
+\end{align}
+
+\subsubsection*{Fokker-Planck Equation}
+
+From the Langevin equation
+
+\begin{align}
+	\dot{X}
+	&=
+	-
+	a
+	X^3(t)
+	+
+	b
+	X(t)
+	+
+	K
+	\pqty{X(t)-X(t-\tau)}
+	+
+	\sqrt{2D_0}
+	\xi(t)
+\end{align} 
+
+With the uncorrelated Gaussian noise $\xi$
+
+\begin{align}
+	\expval{\xi(t)}
+	&=
+	0
+\\
+	\expval{
+		\xi(t)
+		\xi(t^\prime)
+	}
+	&=
+	\delta(t-t^\prime)
+\end{align}
+
+The infinite hierarchy
+
+\begin{align}
+	\partial_t
+	\rho_1(x,t)
+	&=
+	-\partial_x
+	\intl_{\mathcal{V}_\tau}
+	\!\!
+	\dd{x_\tau}
+	F(x,x_\tau)
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	+
+	D_0
+	\partial_x^2
+	\rho_1(x,t)
+\\
+	\partial_t
+	\rho_2(x,t;x_\tau,t-\tau)
+	&=
+	-\partial_{x_\tau}
+	\intl_{\mathcal{V}_\tau}
+	\!\!
+	\dd{x_{2\tau}}
+	F(x_\tau,x_{2\tau})
+	\rho_3
+	(x,t;x_\tau,t-\tau;x_{2\tau},t-2\tau)
+	+
+	\ldots
+\\
+	&\vdots
+\end{align}
+
+Conditional probability densities
+
+\begin{align}
+	\rho_1(x,t)
+	&=
+	\expval{\delta\bqty{X(t)-x}}
+\\
+	\rho_2(x,t;x_\tau,t-\tau)
+	&=
+	\expval{
+		\delta\bqty{X(t)-x}
+		\delta\bqty{X(t-\tau)-x_\tau}
+	}
+\end{align}
+
+Novikov's theorem
+
+\begin{align}
+	\partial_t
+	\rho_1(x,t)
+	&=
+	-\partial_x
+	\intl_{\mathcal{V}_\tau}
+	\!\!
+	\dd{x_\tau}
+	F(x,x_\tau)
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	+
+	D_0
+	\partial_x^2
+	\rho_1(x,t)
+\\
+	\partial_t
+	\rho_2(x,t;x_\tau,t-\tau)
+	&=
+	-
+	\partial_{x}
+	F(x,x_\tau)
+	\rho_2(x,t;x_\tau,t-\tau)
+	-
+	\partial_{x_\tau}
+	\intl_{\mathcal{V}_\tau}
+	\!\!
+	\dd{x_{2\tau}}
+	F(x_\tau,x_{2\tau})
+	\rho_3
+	(x,t;x_\tau,t-\tau;x_{2\tau},t-2\tau)
+\\
+	&+
+	D_0
+	\pqty{
+		\partial_x^2
+		+
+		\partial_{x_\tau}^2
+		+
+		\partial_x
+		\partial_{x_\tau}
+		\pqty{
+			\eval{\frac{\delta X(t)}{\delta\xi(t-\tau)}}_{
+				X(t)=x
+			}^{X(t-\tau)=x_{\tau}}
+		}
+	}
+	\rho_2(x,t;x_\tau,t-\tau)
+\end{align}
+
+Crazy cross diffusion term for a test functional $\Lambda$ of the noise process
+
+\begin{align}
+	\expval{\Lambda\bqty{\xi}\xi(t)}
+	&=
+	\expval{\frac{\delta\Lambda}{\delta\xi(t)}}
+\end{align}
+
+Auxiliary variables
+
+\begin{align}
+	j
+	&=
+	1,2,\ldots,N
+\\
+	X(t)
+	&\to
+	\pqty{
+		X_0,X_1,X_2,\ldots,X_N
+	},
+	\quad
+	\mathbb{R}\to\mathbb{R}^{N+1}
+\end{align}
+
+Slice the interval
+
+\begin{align}
+	\Delta t
+	&=
+	\frac{\tau}{N},
+	\quad
+	X_j(t)
+	=
+	X(t-j\Delta t)
+\\
+	\Rightarrow
+	X_0(t)
+	&=
+	X(t),
+	\quad
+	X_N(t)
+	=
+	X(t-\tau)
+\end{align}
+
+Dynamics
+
+\begin{align}
+	\dot{X}_j
+	&=
+	\lim\limits_{\Delta t\to0}
+	\frac{X_j(t+\Delta t)-X_j(t)}{\Delta t}
+	\approx
+	\frac{N}{\tau}
+	\pqty{X_{j-1}(t)-X_j(t)}
+\end{align}
+
+Langevin equation and Markovian system
+
+\begin{align}
+	\dot{X}_0
+	&=
+	F(X_0(t),X_N(t))
+	+
+	\sqrt{2D_0}
+	\xi(t)
+\\
+	\dot{X}_1
+	&=
+	\frac{N}{\tau}
+	\pqty{X_0(t)-X_1(t)}
+\\
+	&\vdots
+\\
+	\dot{X}_N
+	&=
+	\frac{N}{\tau}
+	\pqty{X_{N-1}(t)-X_N(t)}
+\end{align}
+
+Projection onto dynamics of $X_0$
+
+\begin{align}
+	\eval{X_j (t)}_{j>0}
+	&=
+	\intl_{-\infty}^t
+	\dd{t^\prime}
+	\frac{N}{\tau}
+	\exp\pqty{-\frac{N}{\tau}(t-t^\prime)}
+	X_{j-1}(t)
+\end{align}
+
+Iterate
+
+\begin{align}
+	X_{j+1}(t)
+	&=
+	\intl_{-\infty}^t
+	\dd{t^\prime}
+	\pqty{
+		\frac{N}{\tau}
+	}^2
+	\pqty{t-t^\prime}
+	\exp\pqty{-\frac{N}{\tau}(t-t^\prime)}
+	X_{j-1}(t)
+\\
+	X_{j+2}(t)
+	&=
+	\intl_{-\infty}^t
+	\dd{t^\prime}
+	\frac{1}{2}
+	\pqty{
+		\frac{N}{\tau}
+	}^3
+	\pqty{t-t^\prime}^2
+	\exp\pqty{-\frac{N}{\tau}(t-t^\prime)}
+	X_{j-1}(t)
+\\
+	X_{j+N-1}(t)
+	&=
+	\intl_{-\infty}^t
+	\dd{t^\prime}
+	\frac{1}{(N-1)!}
+	\pqty{
+		\frac{N}{\tau}
+	}^N
+	\pqty{t-t^\prime}^{N-1}
+	\exp\pqty{-\frac{N}{\tau}(t-t^\prime)}
+	X_{j-1}(t)
+\end{align}
+
+For $j=1$
+
+\begin{align}
+	X_{N}(t)
+	&=
+	\intl_{-\infty}^t
+	\dd{t^\prime}
+	\frac{1}{(N-1)!}
+	\pqty{
+		\frac{N}{\tau}
+	}^N
+	\pqty{t-t^\prime}^{N-1}
+	\exp\pqty{-\frac{N}{\tau}(t-t^\prime)}
+	X_{0}(t)
+\end{align}
+
+Keep $N$ not only countable, but finite. Let $j\in\Bqty{1,2,\ldots,N}$
+
+\begin{align}
+	\dot{X}_0
+	&=
+	F(X_0(t),X_N(t))
+	+
+	\sqrt{2D_0}
+	\xi(t)
+	\\
+	\dot{X}_j
+	&=
+	\frac{N}{\tau}
+	\pqty{X_{j-1}(t)-X_{j}(t)}
+\end{align}
+
+Fokker-Planck equation for the Markovian system
+
+\begin{align}
+	\rho_{N+1}(x_0,\ldots,x_N;t)
+	&=
+	\expval{
+		\delta(x_0-X_0(t))
+		\ldots
+		\delta(x_N-X_N(t))
+	}
+\end{align}
+
+\begin{align}
+	\partial_t
+	\rho_{N+1}(x_0,\ldots,x_N;t)
+	&=
+	\pqty{
+		-
+		\suml_{j=0}^N
+		\partial_{x_j}
+		f_j(x_j,x_{j-1})
+		+
+		D_0
+		\partial_x^2
+	}
+	\rho_{N+1}(x_0,\ldots,x_N;t)
+\\
+	f_j(x_j,x_{j-1})
+	&=
+	\begin{cases}
+		F(x_0,x_N),&j=0
+		\\
+		\frac{N}{\tau}
+		\pqty{x_{j-1}-x_j},&j>0
+	\end{cases}
+\end{align}
+
+Natural boundary condition
+
+\begin{align}
+	\lim\limits_{x_j\to\pm\infty}
+	\rho_{N+1}(x_0,\ldots,x_N;t)
+	&=
+	0
+\end{align}
+
+Integrating Fokker-Planck equation over all auxiliary variables
+
+\begin{align}
+	\intl_\mathbb{R}
+	\dd{x_1}
+	\cdots
+	\intl_\mathbb{R}
+	\dd{x_N}
+	\partial_t
+	\rho_{N+1}(x_0,\ldots,x_N;t)
+	&=
+	\intl_\mathbb{R}
+	\dd{x_1}
+	\cdots
+	\intl_\mathbb{R}
+	\dd{x_N}
+\\
+	\partial_t
+	\rho_1(x_0,t)
+	&=
+\end{align}
+
+\end{document}
