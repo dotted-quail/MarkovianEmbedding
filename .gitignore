@@ -1,0 +1,29 @@
+# graphic files
+*.fig
+*.gif
+*.jpg
+*.png
+
+# video files
+*.avi
+*.mov
+*.mp4
+*.flv
+*.wmv
+
+# data files
+*.csv
+*.dat
+*.h5
+*.jld
+*.jld2
+
+# latex compilation files
+*.aux
+*.log
+*.pdf
+*.synctex.gz
+
+# pycache
+__pycache__
+
