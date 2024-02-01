@@ -55,6 +55,8 @@
 	-
 	\frac{b}{2}
 	x^2
+	+
+	\frac{b^2}{4a}
 	=
 	\frac{a}{4}
 	x^2
@@ -64,6 +66,8 @@
 	\pqty{
 		x+\sqrt{\frac{2b}{a}}	
 	}
+	+
+	\frac{b^2}{4a}
 \end{align}
 
 \subsubsection*{Force}
@@ -189,7 +193,8 @@ The infinite hierarchy
 	\partial_t
 	\rho_1(x,t)
 	&=
-	-\partial_x
+	-
+	\partial_x
 	\intl_{\mathcal{V}_\tau}
 	\!\!
 	\dd{x_\tau}
@@ -513,6 +518,101 @@ Integrating Fokker-Planck equation over all auxiliary variables
 	\partial_t
 	\rho_1(x_0,t)
 	&=
+\end{align}
+
+\subsubsection*{1D System}
+
+\begin{align}
+	\pdv{\rho_1}{t}
+	&=
+	- 
+	\pdv{F_1}{x}
+	\rho_1
+	(x,t)
+	-
+	F_1(x)
+	\pdv{\rho_1}{x}
+	-
+	\pdv{x}
+	\intl_{\mathcal{V}_\tau}
+	\dd{x_\tau}
+	F_2(x_\tau)
+	\rho_2
+	(x,t;x_\tau,t-\tau)	
+	+
+	D_0
+	\pdv[2]{\rho_1}{x}
+\\
+	\pdv{\rho_2}{t}
+	&=
+	- 
+	\pdv{F_1}{x}
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	-
+	F_1(x)
+	\pdv{\rho_2}{x}
+	-
+	F_2(x_\tau)
+	\pdv{\rho_2}{x}
+	+
+	\pdv{x_\tau}
+	\intl_{\mathcal{V}_\tau}
+	\dd{\dot{x}_\tau}
+	\dot{x}_\tau
+	\rho_2
+	(x,t;x_\tau,t-\tau)	
+	\rho_1
+	(\dot{x}_\tau,t-\tau)	
+	+
+	D_0
+	\pdv[2]{\rho_1}{x}
+\end{align}
+
+\begin{align}
+	\pdv{\rho_1}{t}
+	&=
+	\pqty{3ax^2-b-K}
+	\rho_1
+	(x,t)
+	+
+	\pqty{ax^3-xb-xK}
+	\pdv{\rho_1}{x}
+	+
+	K
+	\pdv{x}
+	\intl_{\mathcal{V}_\tau}
+	\dd{x_\tau}
+	x_\tau
+	\rho_2
+	(x,t;x_\tau,t-\tau)	
+	+
+	D_0
+	\pdv[2]{\rho_1}{x}
+\\
+	\pdv{\rho_2}{t}
+	&=
+	\pqty{3ax^2-b-K}
+	\rho_2
+	(x,t;x_\tau,t-\tau)
+	+
+	\pqty{ax^3-xb-xK}
+	\pdv{\rho_2}{x}
+	+
+	Kx_\tau
+	\pdv{\rho_2}{x}
+	+
+	\pdv{\rho_2}{x_\tau}
+	\pqty{
+		\intl_{\mathcal{V}_\tau}
+		\dd{\dot{x}_\tau}
+		\dot{x}_\tau
+		\rho_1
+		(\dot{x}_\tau,t-\tau)
+	}
+	+
+	D_0
+	\pdv[2]{\rho_2}{x}
 \end{align}
 
 \end{document}
