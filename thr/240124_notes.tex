@@ -1,4 +1,3 @@
-
 \documentclass[a4paper,10pt]{article}
 
 \usepackage[
@@ -26,6 +25,9 @@
 \newcommand{\prodl}{\prod\limits}
 \newcommand{\intl}{\int\limits}
 
+\setlength{\parindent}{0pt}
+
+\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
 
 \begin{document}
 
@@ -475,7 +477,7 @@ Fokker-Planck equation for the Markovian system
 		f_j(x_j,x_{j-1})
 		+
 		D_0
-		\partial_x^2
+		\partial_{x_0}^2
 	}
 	\rho_{N+1}(x_0,\ldots,x_N;t)
 \\
@@ -498,7 +500,7 @@ Natural boundary condition
 	0
 \end{align}
 
-Integrating Fokker-Planck equation over all auxiliary variables
+Integrating the Fokker-Planck equation over all auxiliary variables
 
 \begin{align}
 	\intl_\mathbb{R}
@@ -514,11 +516,264 @@ Integrating Fokker-Planck equation over all auxiliary variables
 	\cdots
 	\intl_\mathbb{R}
 	\dd{x_N}
-\\
+	\pqty{
+		-
+		\suml_{j=0}^N
+		\partial_{x_j}
+		f_j(x_j,x_{j-1})
+		+
+		D_0
+		\partial_{x_0}^2
+	}
+	\rho_{N+1}(x_0,\ldots,x_N;t)
+\end{align}
+
+\begin{align}
+	\intl_\mathbb{R}
+	\dd{x_1}
+	\cdots
+	\intl_\mathbb{R}
+	\dd{x_N}
+	\rho_{N+1}(x_0,\ldots,x_N;t)
+	&=
+	\rho_{1}(x_0;t)
+\end{align}
+
+\begin{align}
+	\intl_\mathbb{R}
+	\dd{x_1}
+	\cdots
+	\intl_\mathbb{R}
+	\dd{x_N}
+	\suml_{j=0}^N
+	\partial_{x_j}
+	f_j(x_j,x_{j-1})
+	\rho_{N+1}(x_0,\ldots,x_N;t)
+	&=
+	\partial_{x_0}
+	\intl_{\mathbb{R}}
+	\dd{x_N}
+	F(x_0,x_N)
+	\rho_{2}(x_0,x_N;t)
+\end{align}
+
+\begin{align}
 	\partial_t
 	\rho_1(x_0,t)
 	&=
+	-
+	\partial_{x_0}
+	\intl_\mathbb{R}
+	\dd{x_N}
+	F(x_0,x_N)
+	\rho_2(x_0,x_N;t)
+	+
+	D_0
+	\partial_{x_0}^2
+	\rho_1(x_0,t)
 \end{align}
+
+We take the limit $N\to\infty$ again
+
+\begin{align}
+	X_0(t)
+	&=
+	X(t)
+	,\quad
+	X_N(t)
+	=
+	X(t-\tau)
+\end{align}
+
+This leads to a coordinate transformation
+
+\begin{align}
+	\Bqty{x_0,t}
+	&\to
+	\Bqty{x,t}
+	,\quad
+	\Bqty{x_N,t}
+	\to
+	\Bqty{x_\tau,t-\tau}
+\end{align}
+
+And therefore to the first Fokker-Planck equation
+
+\begin{align}
+	\partial_t
+	\rho_1(x,t)
+	&=
+	-
+	\partial_{x}
+	\intl_\mathbb{R}
+	\dd{x_\tau}
+	F(x_0,x_\tau)
+	\rho_2(x,t;x_\tau,t-\tau)
+	+
+	D_0
+	\partial_{x}^2
+	\rho_1(x,t)
+\end{align}
+
+Integrating the Fokker-Planck equation over all auxiliary variables but not $x_N$
+
+\begin{align}
+	\intl_\mathbb{R}
+	\dd{x_1}
+	\cdots
+	\intl_\mathbb{R}
+	\dd{x_{N-1}}
+	\partial_t
+	\rho_{N+1}(x_0,\ldots,x_N;t)
+	&=
+	\intl_\mathbb{R}
+	\dd{x_1}
+	\cdots
+	\intl_\mathbb{R}
+	\dd{x_{N-1}}
+	\pqty{
+		-
+		\suml_{j=0}^N
+		\partial_{x_j}
+		f_j(x_j,x_{j-1})
+		+
+		D_0
+		\partial_{x_0}^2
+	}
+	\rho_{N+1}(x_0,\ldots,x_N;t)
+\end{align}
+
+\begin{align}
+	\intl_\mathbb{R}
+	\dd{x_1}
+	\cdots
+	\intl_\mathbb{R}
+	\dd{x_{N-1}}
+	\rho_{N+1}(x_0,\ldots,x_N;t)
+	&=
+	\rho_{2}(x_0,x_N;t)
+\end{align}
+
+\begin{align}
+	\intl_\mathbb{R}
+	\dd{x_1}
+	\cdots
+	\intl_\mathbb{R}
+	\dd{x_{N-1}}
+	\suml_{j=0}^N
+	\partial_{x_j}
+	f_j(x_j,x_{j-1})
+	\rho_{N+1}(x_0,\ldots,x_N;t)
+	&=
+	\partial_{x_0}
+	F(x_0,x_N)
+	\rho_{2}(x_0,x_N;t)
+	-
+	\frac{N}{\tau}
+	\partial_{x_N}
+	\intl_\mathbb{R}
+	\dd{x_{N-1}}
+	(x_N-x_{N-1})
+	\rho_{3}(x_0,x_{N-1},x_N;t)
+\end{align}
+
+\begin{align}
+	\partial_t
+	\rho_2(x_0,x_N,t)
+	&=
+	-
+	\partial_{x_0}
+	F(x_0,x_N)
+	\rho_{2}(x_0,x_N;t)
+	+
+	\frac{N}{\tau}
+	\partial_{x_N}
+	\intl_\mathbb{R}
+	\dd{x_{N-1}}
+	(x_N-x_{N-1})
+	\rho_{3}(x_0,x_{N-1},x_N;t)
+	+
+	D_0
+	\partial_{x_0}^2
+	\rho_2(x_0,x_N,t)
+\end{align}
+
+Taking again the limit $N\to\infty$ and interpret the auxiliary variables under the coordinate transformation
+
+\begin{align}
+	\Bqty{\tfrac{N}{\tau}(x_{N-1}-x_N),t}
+	\to
+	\Bqty{\dot{x},t-\tau}
+\end{align}
+
+This forms an alternative hierarchy
+
+\begin{align}
+	\partial_t
+	\rho_2(x,t;x_\tau,t-\tau)
+	&=
+	-
+	\partial_{x}
+	F(x,x_\tau)
+	\rho_2(x,t;x_\tau,t-\tau)
+	+
+	\partial_{x_\tau}
+	\intl_\mathbb{R}
+	\dd{\dot{x}_\tau}
+	\dot{x}_\tau
+	\rho_{3}(x,t;\dot{x}_\tau,t-\tau;x_\tau,t-\tau)
+	+
+	D_0
+	\partial_{x}^2
+	\rho_2(x,t;x_\tau,t-\tau)
+\end{align}
+
+Closure via mean field approximation
+
+\begin{align}
+	\rho_{3}(x,t;\dot{x}_\tau,t-\tau;x_\tau,t-\tau)
+	&\sim
+	\rho_2(x,t;x_\tau,t-\tau)
+	\rho_1(\dot{x}_\tau,t-\tau)
+\end{align}
+
+We arrive at a system of 2 Fokker-Planck equations, that are delay partial integro-differential equations. 
+
+\begin{align}
+	\partial_t
+	\rho_1(x,t)
+	&=
+	-
+	\partial_{x}
+	\intl_\mathbb{R}
+	\dd{x_\tau}
+	F(x_0,x_\tau)
+	\rho_2(x,t;x_\tau,t-\tau)
+	+
+	D_0
+	\partial_{x}^2
+	\rho_1(x,t)
+\\
+	\partial_t
+	\rho_2(x,t;x_\tau,t-\tau)
+	&=
+	-
+	\partial_{x}
+	F(x,x_\tau)
+	\rho_2(x,t;x_\tau,t-\tau)
+	+
+	\partial_{x_\tau}
+	\intl_\mathbb{R}
+	\dd{\dot{x}_\tau}
+	\dot{x}_\tau
+	\rho_2(x,t;x_\tau,t-\tau)
+	\rho_1(\dot{x}_\tau,t-\tau)
+	+
+	D_0
+	\partial_{x}^2
+	\rho_2(x,t;x_\tau,t-\tau)
+\end{align}
+
 
 \subsubsection*{1D System}
 

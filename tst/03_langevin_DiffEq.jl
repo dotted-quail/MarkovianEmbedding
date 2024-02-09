@@ -7,9 +7,10 @@ using Plots
 using FFMPEG
 
 
-function pot(x;p=[0,0,0])
-    a, b, K = p
-    return a/4*x^4 - (b+K)/2*x^2 + (b+K)^2/(4*a)
+function pot(x;p=[0,0,0,0,0])
+    a, b, K, D0, τ = p
+    K=0
+    return a/4*x^4 - (b)/2*x^2 + (b)^2/(4*a)
 end
 
 function rhs_det(du, u, h, p, t)
@@ -33,7 +34,7 @@ dt = tlen/(tpts-1)
 
 tspan = (0.0, 10.0)
 
-par = [1.0, 10.0, 5.0, 0.1, 0.1]
+par = [1.0, 10.0, 1.0, 0.1, 0.1]
 
 rpts = 1000
 
@@ -65,8 +66,8 @@ end
 
 #plot(Tvec1,Uvec,legend = false)
 
-xmin = -4.0
-xmax =  4.0
+xmin = -6.0
+xmax =  6.0
 xpts = 300
 
 Xvec = collect(LinRange(xmin,xmax,xpts))
