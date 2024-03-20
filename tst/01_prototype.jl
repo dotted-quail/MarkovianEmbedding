@@ -101,7 +101,7 @@ mp4(anim, video_path, fps=fps)
 @info "Video created: $video_path"
 =#
 
-#=
+
 using Plots
 using FFMPEG
 
@@ -135,15 +135,37 @@ for j in 1:length(t)-1
     global courant = θ*dt/dx
 end
 
+collect(x)
+p[:, 1]
+
+
+for i in eachindex(p[:,1])
+    if p[i,1] != 0.0
+        display(p[i,1])
+    end
+end
+
+plot(
+    collect(x),
+    p[:, 1],
+    #title="p1,t=$(round(t[j], digits=2)),cn=$courant",
+)
+
+
 # Create animation
 anim = @animate for j in 1:length(t)
-    plot(x, p[:, j], title="p1,t=$(round(t[j], digits=2)),cn=$courant", xlabel="x", ylabel="Probability Density", legend=false)
+    plot(
+        collect(x),
+        p[:, j]
+    )
 end
 
 # Save the animation as a video file
 gif(anim, "probability_density_evolution.gif", fps = 24)
-=#
 
+
+
+#=
 using PyCall
 using FEniCS
 
@@ -186,3 +208,4 @@ end
 # Final solution
 println("Final Solution at t = ", T, ":")
 println(u_)
+=#

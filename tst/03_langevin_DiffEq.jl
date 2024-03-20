@@ -6,6 +6,54 @@ using Statistics
 using Plots
 using FFMPEG
 
+using JSON
+
+
+par = [1.0, 10.0, 1.0, 0.1, 0.1]
+
+begin
+    a   = 1.0
+    b   = 10.0
+    K   = 1.0
+    D0  = 0.1
+    tau = 0.1
+end
+
+json_path = pwd()*"/tst/"
+json_name = "test_par.json"
+json_dir = json_path*json_name
+
+system_parameters = Dict(
+    "a" => a,
+    "b" => b,
+    "K" => K,
+    "D0" => D0,
+    "tau" => tau
+)
+
+output_dict = Dict(
+    "system_parameters" => system_parameters
+)
+
+open(json_dir, "w") do file
+    JSON.print(file, output_dict)
+end
+
+open(json_dir, "r") do file
+    input_dict = JSON.parse(file)
+end
+
+
+
+
+
+
+
+
+
+
+
+
 
 function pot(x;p=[0,0,0,0,0])
     a, b, K, D0, τ = p
@@ -34,7 +82,6 @@ dt = tlen/(tpts-1)
 
 tspan = (0.0, 10.0)
 
-par = [1.0, 10.0, 1.0, 0.1, 0.1]
 
 rpts = 1000
 

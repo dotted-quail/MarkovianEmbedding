@@ -13,16 +13,16 @@ struct data
     x0::Float64
 end
 
-dat = data(1,10,1,0.1,0.5,0.4)
+dat = data(1,10,1,0.1,1.0,0.0)
 
-xmin = -3.0
-xmax =  3.0
+xmin = -6.0
+xmax =  6.0
 xpts = 110
 X = collect(range(xmin,stop=xmax,length=xpts))
 dx = X[2]-X[1]
 
 tmin = 0.0
-tmax = 5
+tmax = 0.7
 tpts = 400
 T = collect(range(tmin,stop=tmax,length=tpts))
 dt = T[2]-T[1]
@@ -33,7 +33,7 @@ function force(x,n)
     a = 1.0
     b = 10.0
     K = 1.0
-    return (a*x^3-x*b-x*K,0)
+    return (-(a*x^3-x*b-x*K),0)
 end
 
 evelo = edgevelocities(grid, force)
@@ -85,6 +85,10 @@ end
 video_path = "tst/output_video.gif"
 fps = 24
 
+
+V = dat.a/4*X.^4 - (dat.b+dat.K)/2*X.^2 .+ (dat.b+dat.K)^2/(4*dat.a)
+
+
 anim = @animate for it in 1:tpts
     Plots.plot(
         X,sol_arr[it,:],
@@ -97,6 +101,7 @@ anim = @animate for it in 1:tpts
         margin=5Plots.mm,
         title="t="*string(round(T[it],sigdigits=3))
     )
+    Plots.plot!(X,V*0.1)
 end
 
 gif(anim, video_path, fps=fps)
