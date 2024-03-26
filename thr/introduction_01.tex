@@ -84,6 +84,16 @@
 	F_2
 \end{align}
 
+\begin{align}
+	m_0\gamma^{-1}
+	&\to
+	0
+	,\quad
+	\gamma
+	=
+	1
+\end{align}
+
 
 \begin{align}
 	\dot{x}
@@ -245,21 +255,225 @@
 	+
 	\sqrt{2D_0}
 	\xi(t)
+\\
+	&=
+	F^\prime(X,X_\tau)
+	+
+	\sqrt{2D_0}
+	\xi(t)
+\end{align}
+
+\begin{align}
+	\partial_t
+	\varrho_1
+	&=
+	-
+	\partial_x
+	\intl_{\mathbb{R}}
+	\dd{x_\tau}
+	F^\prime(x,x_\tau)
+	\varrho_2
+	(x,t;x_\tau,t-\tau)
+	+
+	D_0
+	\partial_x^2
+	\varrho_1
+	(x,t)
+\end{align}
+
+\begin{align}
+	\partial_t
+	\varrho_2
+	&=
+	-
+	\partial_x
+	F^\prime(x,x_\tau)
+	\varrho_2
+	(x,t;x_\tau,t-\tau)
+	-
+	\partial_{x_\tau}
+	\intl_{\mathbb{R}}
+	\!
+	\dd{x_{2\tau}}
+	F^\prime(x_\tau,x_{2\tau})
+	\varrho_3
+	(x,t;x_\tau,t-\tau;x_{2\tau},t-2\tau)
+	\\
+	&+
+	D_0
+	\pqty{
+		\partial_x^2
+		+
+		\partial_{x_\tau}^2
+		+
+		\partial_x
+		\partial_{x_\tau}
+		\pqty{
+			\eval{
+				\frac{\delta X(t)}{\delta\xi(t-\tau)}
+			}_{
+				X(t)=x
+			}^{
+				X(t-\tau)=x_{\tau}
+			}
+		}
+	}
+	\varrho_2(x,t;x_\tau,t-\tau)
+\end{align}
+
+\begin{align}
+	\partial_t
+	\varrho_2
+	&=
+	-
+	\partial_x
+	F^\prime(x,x_\tau)
+	\varrho_2
+	(x,t;x_\tau,t-\tau)
+	-
+	\expval{\dot{X}(t-\tau)}
+	\partial_{x_\tau}
+	\varrho_2
+	(x,t;x_\tau,t-\tau)
+	\\
+	&+
+	D_0
+	\partial_x^2
+	\varrho_2(x,t;x_\tau,t-\tau)
+\end{align}
+
+\begin{align}
+	\expval{\dot{X}(t-\tau)}
+	&=
+	\intl_{\mathbb{R}}
+	\!
+	\dd{x}
+	J(x,t-\tau)
+\end{align}
+
+\begin{align}
+	J(x,t-\tau)
+	&=
+	\intl_{\mathbb{R}}
+	\!
+	\dd{x_\tau}
+	F^\prime(x,x_\tau)
+	\varrho_2
+	(x,t-\tau;x_\tau,t-2\tau)
+	-
+	D_0
+	\partial_x
+	\varrho_1(x,t-\tau)
+\end{align}
+
+\begin{align}
+	\intl_{\mathbb{R}}
+	\!
+	\dd{x}
+	J(x,t-\tau)
+	&=
+	\intl_{\mathbb{R}}
+	\!
+	\dd{x}
+	\intl_{\mathbb{R}}
+	\!
+	\dd{x_\tau}
+	F^\prime(x,x_\tau)
+	\varrho_2
+	(x,t-\tau;x_\tau,t-2\tau)
+	=
+	\Phi(t-\tau,t-2\tau)
 \end{align}
 
 
+$y=x_\tau$
 
+\begin{align}
+	\varrho_2
+	(x,t-\tau;x_\tau,t-2\tau)
+	&\to
+	\varrho_2
+	(x,y,t-\tau)
+\\
+	\Phi(t-\tau,t-2\tau)
+	&\to
+	\Phi(t-\tau)
+\end{align}
 
+\begin{align}
+	\partial_t
+	\varrho_1
+	&=
+	-
+	\partial_x
+	\intl_{\mathbb{R}}
+	\dd{y}
+	F^\prime(x,y)
+	\varrho_2
+	(x,y,t)
+	+
+	D_0
+	\partial_x^2
+	\varrho_1
+	(x,t)
+\end{align}
 
+\begin{align}
+	\partial_t
+	\varrho_1
+	&=
+	-
+	\partial_x
+	F_0^\prime(x)
+	\varrho_1
+	(x,t)
+	-
+	\partial_x
+	\intl_{\mathbb{R}}
+	\dd{y}
+	F_\tau^\prime(y)
+	\varrho_2
+	(x,y,t)
+	+
+	D_0
+	\partial_x^2
+	\varrho_1
+	(x,t)
+\end{align}
 
+\begin{align}
+	\partial_t
+	\varrho_2
+	&=
+	-
+	\partial_x
+	F^\prime(x,y)
+	\varrho_2
+	(x,y,t)
+	-
+	\Phi(t-\tau)
+	\partial_{y}
+	\varrho_2
+	(x,y,t)
+	+
+	D_0
+	\partial_x^2
+	\varrho_2(x,y,t)
+\end{align}
 
-
-
-
-
-
-
-
+\begin{align}
+	\Phi(t-\tau)
+	&=
+	\intl_{\mathbb{R}}
+	\!
+	\dd{x}
+	\intl_{\mathbb{R}}
+	\!
+	\dd{y}
+	F^\prime(x,y)
+	\varrho_2
+	(x,y,t-\tau)
+\end{align}
 
 
 \end{document}
