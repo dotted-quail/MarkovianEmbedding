@@ -1,0 +1,265 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[
+	left=1cm,right=1cm,top=1cm,bottom=2cm,
+    papersize={250mm,350mm}
+]{geometry}
+
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{physics}
+
+\usepackage{verbatim}
+
+\usepackage[squaren]{SIunits}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\suml}{\sum\limits}
+\newcommand{\prodl}{\prod\limits}
+\newcommand{\intl}{\int\limits}
+
+\setlength{\parindent}{0pt}
+
+\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
+
+\begin{document}
+
+\begin{align}
+	F
+	&=
+	m_0\ddot{x}
+\end{align}
+
+\begin{align}
+	F
+	&=
+	F_0(x)
+	+
+	F_1
+\end{align}
+
+\begin{align}
+	F_0(x)
+	&=
+	-\pdv{V_0}{x}
+\end{align}
+
+\begin{align}
+	F_\gamma
+	(\dot{x})
+	&=
+	-\gamma
+	\dot{x}
+\end{align}
+
+\begin{align}
+	F_0(x)
+	+
+	F_\gamma
+	(\dot{x})
+	+
+	F_2
+	&=
+	m_0
+	\ddot{x}
+\end{align}
+
+\begin{align}
+	\frac{m_0}{\gamma}
+	\ddot{x}
+	+
+	\dot{x}
+	&=
+	\gamma^{-1}
+	F_0(x)
+	+
+	\gamma^{-1}
+	F_2
+\end{align}
+
+
+\begin{align}
+	\dot{x}
+	&=
+	F_0(x)
+	+
+	F_2
+\end{align}
+
+
+\begin{align}
+	V_0
+	(x)
+	&=
+	\frac{a}{4}
+	x^4
+	-
+	\frac{b}{2}
+	x^2
+	+
+	\frac{b^2}{4a}
+\\
+	&=
+	\frac{a}{4}
+	x^2
+	\pqty{
+		x-\sqrt{\frac{2b}{a}}
+	}
+	\pqty{
+		x+\sqrt{\frac{2b}{a}}	
+	}
+	+
+	\frac{b^2}{4a}
+\end{align}
+
+\begin{align}
+	a,b&>0
+\end{align}
+
+\begin{align}
+	F_0(x)
+	&=
+	-ax^3
+	+bx
+\end{align}
+
+\begin{align}
+	F_\xi(t)
+	&=
+	\sqrt{2D_0}
+	\xi(t)
+\end{align}
+
+\begin{align}
+	\expval{\xi(t)}
+	&=
+	0,
+	\quad
+	\expval{\xi(t)\xi(t^\prime)}
+	=
+	\delta(t-t^\prime)
+\end{align}
+
+\begin{align}
+	\dot{X}
+	&=
+	F_0(X)
+	+
+	F_\xi(t)
+\\
+	&=
+	-aX^3+bX
+	\sqrt{2D_0}
+	\xi(t)
+\end{align}
+
+\begin{align}
+	\partial_t
+	\varrho
+	&=
+	-
+	\partial_x
+	F_0(x)
+	\varrho(x,t)
+	+
+	D_0
+	\partial_x^2
+	\varrho(x,t)
+\end{align}
+
+\begin{align}
+	\partial_t
+	\varrho
+	-
+	\partial_x
+	\pqty{
+		-
+		F_0(x)
+		\varrho(x,t)
+		+
+		D_0
+		\partial_x
+		\varrho(x,t)
+	}
+	&=
+	0
+\end{align}
+
+\begin{align}
+	\partial_t
+	\varrho
+	-
+	\partial_x
+	\pqty{
+		(ax^3-bx)
+		\varrho(x,t)
+		+
+		D_0
+		\partial_x
+		\varrho(x,t)
+	}
+	&=
+	0
+\end{align}
+
+\begin{align}
+	F_\tau
+	(x,x_\tau)
+	&=
+	Kx
+	-
+	Kx_\tau
+\end{align}
+
+\begin{align}
+	\dot{X}
+	&=
+	F_0(X)
+	+
+	F_\tau(X,X_\tau)
+	+
+	F_\xi(t)
+	\\
+	&=
+	-aX^3
+	+
+	(b+K)
+	X
+	-
+	KX_\tau
+	+
+	\sqrt{2D_0}
+	\xi(t)
+\\
+	&=
+	F_0^\prime(X)
+	+
+	F_\tau^\prime(X_\tau)
+	+
+	\sqrt{2D_0}
+	\xi(t)
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

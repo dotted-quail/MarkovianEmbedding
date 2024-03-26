@@ -21,13 +21,15 @@ xpts = 110
 X = collect(range(xmin,stop=xmax,length=xpts))
 dx = X[2]-X[1]
 
+grid = simplexgrid(X)
+
 tmin = 0.0
 tmax = 0.7
 tpts = 400
 T = collect(range(tmin,stop=tmax,length=tpts))
 dt = T[2]-T[1]
 
-grid = simplexgrid(X)
+
 
 function force(x,n)
     a = 1.0
@@ -50,7 +52,6 @@ function storage!(f,u,node,data)
     f[1] = u[1]
 end
 
-ispec = 1
 phy = VoronoiFVM.Physics(
     flux = flux!,
     storage = storage!,
@@ -58,7 +59,7 @@ phy = VoronoiFVM.Physics(
 )
 sys = VoronoiFVM.System(grid,phy)
 
-enable_species!(sys, ispec, [1])
+enable_species!(sys, 1, [1])
 
 function gauss(x,data)
     s = data.s
